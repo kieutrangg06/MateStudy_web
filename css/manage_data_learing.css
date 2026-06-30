@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #991b1b;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #faad14;
+  --light: #f8fafc;
+  --dark: #1e293b;
+  --gray: #64748b;
+  --border: #e2e8f0;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--dark);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: white;
+  padding: 2rem 1.5rem;
+  margin: 0;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border: none;
+  border-radius: 12px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #7f1d1d;
+}
+
+.add-subject-btn {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.add-subject-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  height: 42px;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  padding: 0.5rem 1rem;
+}
+
+.search-btn {
+  height: 42px;
+  min-width: 100px;
+  padding: 0 1.5rem;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.search-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+@media (max-width: 576px) {
+  .search-btn {
+    min-width: 80px;
+    padding: 0 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+.search-filter {
+  background: #f1f5f9;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(153, 27, 27, 0.15);
+}
+
+.card-subject {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: white;
+}
+
+.card-subject:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary);
+}
+
+.subject-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dark);
+}
+
+.subject-info {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 0.3rem;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 50px;
+}
+
+.badge-active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge-inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.pagination .page-link {
+  color: var(--primary);
+  border: 1px solid #e2e8f0;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.pagination .page-link:hover {
+  background: #fee2e2;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #9ca3af;
+}
+
+.alert {
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+}
+/* Giữ nguyên code cũ, thêm vào cuối */
+.card-subject {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+.card-subject:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+.container {
+  padding: 3rem 2rem;
+}

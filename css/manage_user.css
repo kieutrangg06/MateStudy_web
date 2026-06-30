@@ -1,0 +1,239 @@
+:root {
+  --primary: #991b1b;
+  --success: #10b981;
+  --danger: #ef4444;
+  --light: #f1f5f9;
+  --dark: #1e293b;
+  --gray: #64748b;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(rgba(240, 249, 255, 0.95), rgba(248, 250, 252, 0.98)),
+              url('https://images.unsplash.com/photo-1523050858588-9cb4f0c314be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat fixed;
+  min-height: 100vh;
+  color: var(--dark);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0 2rem;
+  padding-top: 2rem;
+}
+
+.btn-add {
+  background: var(--primary);
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(153, 27, 27, 0.3);
+}
+
+.btn-export {
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.search-bar {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 0 2rem 2rem;
+}
+
+.search-bar .form-control {
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+.search-bar .btn {
+  border: none;
+  padding: 0.75rem 1rem;
+}
+
+.table {
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
+}
+
+.table thead th {
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--gray);
+  padding: 1rem 0.75rem;
+}
+
+.table tbody tr {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.table td {
+  padding: 1rem 0.75rem;
+  border: none;
+  vertical-align: middle;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e0e7ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.user-email {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-offline {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.action-btn {
+  border-radius: 10px;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-edit {
+  background: #dbeafe;
+  color: var(--primary);
+  border: none;
+}
+
+.btn-edit:hover {
+  background: #c7d2fe;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: var(--danger);
+  border: none;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}
+
+.pagination-info {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.pagination .page-link {
+  border: none;
+  color: var(--primary);
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 0 0.2rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--primary);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    padding-top: 1.5rem;
+  }
+  
+  .page-header-outer {
+    padding: 0 1.5rem;
+    margin: 1.5rem auto 1rem;
+  }
+  
+  .search-bar {
+    margin: 0 1.5rem 1.5rem;
+  }
+  
+  .table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+/* Giữ nguyên code cũ, thêm vào cuối */
+.table {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.container {
+  padding: 3rem 2rem;
+}
+.btn-add {
+  box-shadow: 0 6px 15px rgba(153,27,27,0.2);
+}

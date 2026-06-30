@@ -1,0 +1,1068 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
+
+/* =================================
+ * 1. CSS VARIABLES & BASE RESET
+ * ================================= */
+
+:root {
+  /* Màu sắc thương hiệu */
+  --color-primary: #a12c2f;
+  /* Đỏ/Maroon */
+  --color-secondary: #f5a425;
+  /* Cam/Vàng */
+  --color-dark: #1f272b;
+  --color-light: #f7f7f7;
+  --color-white: #fff;
+  --color-text-body: #4a4a4a;
+  --color-text-heading: var(--color-dark);
+
+  /* Typography */
+  --font-family-base: 'Poppins', sans-serif;
+
+  /* Spacing */
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+
+  /* Borders & Shadow */
+  --border-radius-base: 15px;
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-body);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-heading);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 15px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  padding: var(--space-xl) 0;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Bootstrap breakpoints for reference, keeping it compatible with existing classes */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+
+/* =================================
+ * 2. UTILITY & BUTTONS
+ * ================================= */
+
+.section-heading h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  line-height: 1.2;
+}
+
+.main-button-red a,
+section.contact-us #contact button {
+  font-size: 14px;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 50px;
+  /* Thon gọn hơn */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.main-button-red a:hover,
+section.contact-us #contact button:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+
+/* =================================
+ * 3. MAIN BANNER
+ * ================================= */
+
+.main-banner {
+  min-height: 80vh;
+  /* Điều chỉnh chiều cao tối thiểu */
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-base);
+  /* Giữ lại border-radius & shadow */
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-md);
+  background-color: #1f272b;
+  /* Màu nền dự phòng khi video chưa load */
+}
+
+/* Loại bỏ mọi background trắng trong banner */
+.main-banner .video-overlay,
+.main-banner .container,
+.main-banner .row,
+.main-banner .col-lg-12,
+.main-banner .caption,
+.main-banner .header-text {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: none !important;
+}
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.video-overlay {
+  position: relative;
+  background-color: transparent;
+  /* Loại bỏ hoàn toàn lớp phủ để thấy video */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.video-overlay .container,
+.video-overlay .row,
+.video-overlay .col-lg-12 {
+  background: transparent !important;
+}
+
+.main-banner .caption {
+  position: relative;
+  z-index: 2;
+  color: var(--color-white);
+  padding: 2rem 0 !important;
+  max-width: 600px;
+  background: transparent !important;
+}
+
+.main-banner .caption h6 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-secondary);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.main-banner .caption h2 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive H2 */
+@media (max-width: 767px) {
+  .main-banner .caption h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-banner .caption h2 {
+    font-size: 2rem;
+  }
+}
+
+.main-banner .caption p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  margin-bottom: var(--space-lg);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+}
+
+
+/* =================================
+ * 4. UPCOMING MEETINGS (Nội dung)
+ * ================================= */
+
+section.upcoming-meetings {
+  background-image: linear-gradient(rgba(31, 39, 43, 0.9), rgba(31, 39, 43, 0.9)), url(../images/meetings-bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: var(--space-xl) 0;
+}
+
+/* Categories Block */
+section.upcoming-meetings .categories {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-md);
+  height: 100%;
+  /* Cân bằng chiều cao */
+  box-shadow: var(--shadow-sm);
+}
+
+section.upcoming-meetings .categories h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-md);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+section.upcoming-meetings .categories ul li {
+  margin-bottom: 1rem;
+}
+
+section.upcoming-meetings .categories ul li a {
+  font-size: 16px;
+  color: var(--color-text-body);
+  font-weight: 500;
+  display: block;
+  padding: 0.25rem 0;
+}
+
+section.upcoming-meetings .categories ul li a:hover {
+  color: var(--color-primary);
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+}
+
+section.upcoming-meetings .categories .main-button-red {
+  border-top: 1px solid #eee;
+  padding-top: var(--space-md);
+  margin-top: 1rem;
+}
+
+section.upcoming-meetings .categories .main-button-red a {
+  width: 100%;
+  text-align: center;
+}
+
+/* Meeting Item Card */
+.meeting-item {
+  margin-bottom: var(--space-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--border-radius-base);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.meeting-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.meeting-item .thumb img {
+  border-radius: 0;
+  /* Đã làm tròn cho item bao ngoài */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.meeting-item .down-content {
+  background-color: var(--color-white);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.meeting-item .down-content a h4 {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.meeting-item .down-content p {
+  color: var(--color-text-body);
+  font-size: 14px;
+}
+
+/* =================================
+ * 5. OUR FACTS (Thống kê)
+ * ================================= */
+
+section.our-facts {
+  background-image: linear-gradient(rgba(31, 39, 43, 0.9), rgba(31, 39, 43, 0.9)), url(../images/facts-bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: var(--space-xl) 0;
+}
+
+section.our-facts h2 {
+  font-size: 2.5rem;
+  color: var(--color-white);
+  font-weight: 800;
+  margin-bottom: var(--space-lg);
+}
+
+.count-area-content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Giảm độ mờ */
+  backdrop-filter: blur(5px);
+  /* Hiệu ứng blur nhẹ */
+  border-radius: var(--border-radius-base);
+  padding: var(--space-md);
+  margin: 1rem 0;
+  height: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.count-digit {
+  color: var(--color-secondary);
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 0.25rem;
+}
+
+.count-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  letter-spacing: 0.5px;
+}
+
+.percentage .count-digit:after {
+  content: '%';
+  margin-left: 3px;
+}
+
+/* Video Placeholder */
+section.our-facts .video {
+  text-align: center;
+  margin-left: 0;
+  /* Tối ưu cho mobile */
+  margin-top: var(--space-md);
+  background-image: url(../images/video-item-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: var(--border-radius-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+section.our-facts .video:hover {
+  opacity: 0.9;
+}
+
+section.our-facts .video a {
+  display: block;
+  line-height: 0;
+}
+
+section.our-facts .video img {
+  max-width: 60px;
+  transition: transform 0.3s ease;
+}
+
+section.our-facts .video:hover img {
+  transform: scale(1.1);
+}
+
+/* =================================
+ * 6. CONTACT US
+ * ================================= */
+
+section.contact-us {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: var(--space-xl) 0;
+  position: relative;
+}
+
+section.contact-us::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+section.contact-us .container {
+  position: relative;
+  z-index: 1;
+}
+
+section.contact-us #contact {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+section.contact-us #contact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+section.contact-us #contact h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  padding-bottom: 1rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+section.contact-us #contact h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  border-radius: 2px;
+}
+
+section.contact-us #contact fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Input wrapper for icon positioning */
+section.contact-us #contact .col-lg-4,
+section.contact-us #contact .col-lg-12 {
+  position: relative;
+}
+
+section.contact-us #contact input,
+section.contact-us #contact textarea {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  font-size: 15px;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  padding: 14px 20px 14px 50px;
+  font-family: var(--font-family-base);
+}
+
+section.contact-us #contact input::placeholder,
+section.contact-us #contact textarea::placeholder {
+  color: #adb5bd;
+  font-weight: 400;
+}
+
+section.contact-us #contact input:focus,
+section.contact-us #contact textarea:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-white);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(161, 44, 47, 0.1);
+  transform: translateY(-2px);
+}
+
+section.contact-us #contact input {
+  height: 52px;
+}
+
+section.contact-us #contact textarea {
+  min-height: 180px;
+  resize: vertical;
+  padding-top: 14px;
+}
+
+/* Icon styles for inputs */
+section.contact-us #contact .col-lg-4:nth-child(2)::before,
+section.contact-us #contact .col-lg-4:nth-child(3)::before,
+section.contact-us #contact .col-lg-12:nth-child(4)::before {
+  font-family: 'boxicons';
+  position: absolute;
+  left: 18px;
+  top: 15px;
+  font-size: 20px;
+  color: var(--color-primary);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+section.contact-us #contact .col-lg-4:nth-child(2)::before {
+  content: '\eb99';
+  /* bx-user */
+}
+
+section.contact-us #contact .col-lg-4:nth-child(3)::before {
+  content: '\eb0a';
+  /* bx-envelope */
+}
+
+section.contact-us #contact .col-lg-12:nth-child(4)::before {
+  content: '\eb5a';
+  /* bx-message-detail */
+  top: 15px;
+}
+
+/* Button styling */
+section.contact-us #contact button {
+  width: 100%;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #8a2426 100%);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(161, 44, 47, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+section.contact-us #contact button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+section.contact-us #contact button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+section.contact-us #contact button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(161, 44, 47, 0.4);
+}
+
+section.contact-us #contact button:active {
+  transform: translateY(-1px);
+}
+
+/* Right Info (Contact Details) */
+section.contact-us .right-info {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #8a2426 100%);
+  border-radius: var(--border-radius-base);
+  padding: 0;
+  box-shadow: 0 10px 40px rgba(161, 44, 47, 0.3);
+  color: var(--color-white);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+section.contact-us .right-info::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Info Header */
+section.contact-us .right-info .info-header {
+  background: rgba(0, 0, 0, 0.2);
+  padding: var(--space-md);
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+section.contact-us .right-info .info-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+section.contact-us .right-info .info-header p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+section.contact-us .right-info ul {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-md);
+}
+
+section.contact-us .right-info ul li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+section.contact-us .right-info ul li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+/* Info Item Container */
+section.contact-us .right-info .info-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 90px;
+  overflow: hidden;
+}
+
+section.contact-us .right-info .info-item::before {
+  font-family: 'boxicons';
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 28px;
+  color: var(--color-secondary);
+  transition: all 0.3s ease;
+}
+
+section.contact-us .right-info ul li:nth-child(1) .info-item::before {
+  content: '\ec90';
+  /* bx-phone */
+}
+
+section.contact-us .right-info ul li:nth-child(2) .info-item::before {
+  content: '\eb0a';
+  /* bx-envelope */
+}
+
+section.contact-us .right-info ul li:nth-child(3) .info-item::before {
+  content: '\eb2e';
+  /* bx-map */
+}
+
+section.contact-us .right-info ul li:nth-child(4) .info-item::before {
+  content: '\ec5f';
+  /* bx-globe */
+}
+
+section.contact-us .right-info .info-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+section.contact-us .right-info .info-item:hover::before {
+  transform: scale(1.15) rotate(10deg);
+  color: var(--color-white);
+}
+
+section.contact-us .right-info .info-item h6 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-left: 3.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+section.contact-us .right-info .info-item span {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-white);
+  font-weight: 700;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+  margin-left: 3.2rem;
+  padding-right: 0.5rem;
+}
+
+section.contact-us .right-info .info-item small {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+  font-style: italic;
+  margin-left: 3.2rem;
+  line-height: 1.3;
+}
+
+/* Social Links */
+section.contact-us .right-info .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+section.contact-us .right-info .social-links a {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--color-white);
+  font-size: 24px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+section.contact-us .right-info .social-links a:hover {
+  background: var(--color-white);
+  color: var(--color-primary);
+  transform: translateY(-5px) rotate(360deg);
+  border-color: var(--color-secondary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Alert Messages (Thêm style cho thông báo) */
+.alert {
+  padding: 18px 20px;
+  margin-bottom: 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert::before {
+  font-family: 'boxicons';
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.alert-success {
+  color: #155724;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border-left: 4px solid #28a745;
+}
+
+.alert-success::before {
+  content: '\eb7d';
+  /* bx-check-circle */
+  color: #28a745;
+}
+
+.alert-danger {
+  color: #721c24;
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border-left: 4px solid #dc3545;
+}
+
+.alert-danger::before {
+  content: '\eb90';
+  /* bx-error-circle */
+  color: #dc3545;
+}
+
+/* =================================
+ * 7. MEDIA QUERIES (Responsive)
+ * ================================= */
+
+@media (max-width: 991px) {
+
+  /* Điều chỉnh section padding */
+  section {
+    padding: var(--space-lg) 0;
+  }
+
+  /* Upcoming Meetings */
+  section.upcoming-meetings .categories {
+    margin-bottom: var(--space-lg);
+  }
+
+  .meeting-item {
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Our Facts */
+  section.our-facts .video {
+    margin-top: var(--space-lg);
+    min-height: 300px;
+  }
+
+  section.our-facts h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+  }
+
+  /* Contact Us */
+  section.contact-us #contact {
+    margin-bottom: var(--space-lg);
+  }
+
+  section.contact-us .right-info {
+    margin-top: var(--space-md);
+  }
+}
+
+@media (max-width: 767px) {
+  .main-banner .caption h2 {
+    font-size: 2.5rem;
+  }
+
+  .main-banner {
+    min-height: 60vh;
+  }
+
+  .count-digit {
+    font-size: 2.5rem;
+  }
+
+  .count-area-content {
+    margin: 0.5rem 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .new-students {
+    margin-top: 1rem;
+  }
+
+  /* Contact Form Mobile */
+  section.contact-us #contact h2 {
+    font-size: 1.5rem;
+  }
+
+  section.contact-us #contact input,
+  section.contact-us #contact textarea {
+    padding: 12px 15px 12px 45px;
+    font-size: 14px;
+  }
+
+  section.contact-us #contact .col-lg-4:nth-child(2)::before,
+  section.contact-us #contact .col-lg-4:nth-child(3)::before,
+  section.contact-us #contact .col-lg-12:nth-child(4)::before {
+    left: 15px;
+    font-size: 18px;
+  }
+
+  section.contact-us #contact button {
+    padding: 14px 25px;
+    font-size: 14px;
+  }
+
+  section.contact-us .right-info .info-header {
+    padding: 1.5rem 1rem;
+  }
+
+  section.contact-us .right-info .info-header h3 {
+    font-size: 1.3rem;
+  }
+
+  section.contact-us .right-info .info-header p {
+    font-size: 0.85rem;
+  }
+
+  section.contact-us .right-info ul {
+    padding: 1.5rem 1rem;
+  }
+
+  section.contact-us .right-info .info-item {
+    padding: 0.9rem;
+    min-height: 85px;
+  }
+
+  section.contact-us .right-info .info-item::before {
+    font-size: 24px;
+    left: 0.9rem;
+    top: 0.9rem;
+  }
+
+  section.contact-us .right-info .info-item h6 {
+    margin-left: 2.5rem;
+    font-size: 0.65rem;
+  }
+
+  section.contact-us .right-info .info-item span {
+    font-size: 0.95rem;
+    margin-left: 2.5rem;
+  }
+
+  section.contact-us .right-info .info-item small {
+    font-size: 0.7rem;
+    margin-left: 2.5rem;
+  }
+
+  section.contact-us .right-info .social-links {
+    padding: 1.5rem 1rem;
+    gap: 0.8rem;
+  }
+
+  section.contact-us .right-info .social-links a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+/* Override mọi background trắng trong banner */
+.main-banner .video-overlay,
+.main-banner .video-overlay *:not(.main-button-red):not(.main-button-red a),
+.main-banner .container,
+.main-banner .row,
+.main-banner .col-lg-12,
+.main-banner .caption {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+}
+
+/* Giữ màu đỏ cho nút */
+.main-banner .main-button-red a {
+  background-color: #a12c2f !important;
+  color: #fff !important;
+}
+
+.main-banner .main-button-red a:hover {
+  background-color: #1f272b !important;
+  color: #fff !important;
+}
